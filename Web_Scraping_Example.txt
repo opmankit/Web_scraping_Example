@@ -1,0 +1,10 @@
+import requests
+from bs4 import BeautifulSoup
+print('#####WEB SCRAPING#####')
+url = 'https://www.britannica.com/technology/LED'
+abc = requests.get(url)
+soup = BeautifulSoup(abc.content,'html.parser')
+links = soup.find_all('p')
+links = soup.find_all('a')                                                          
+for link in links:
+    print(link.get('href'))
